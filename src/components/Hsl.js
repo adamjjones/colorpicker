@@ -4,14 +4,20 @@ export class Hsl extends Component {
   state = {
     hue: 0,
     saturation: 0,
-    brightness: 0
+    brightness: 0,
+    alpha: 0
   }
 
   changeHue = event => {
-    console.log('It works')
     console.log(event)
     this.setState({
       hue: event.target.value
+    })
+  }
+
+  changeAlpha = event => {
+    this.setState({
+      alpha: event.target.value
     })
   }
 
@@ -20,6 +26,12 @@ export class Hsl extends Component {
     console.log(event)
     this.setState({
       saturation: event.target.value
+    })
+  }
+
+  displayCode = event => {
+    this.setState({
+      hue: this.value
     })
   }
 
@@ -34,20 +46,55 @@ export class Hsl extends Component {
   render() {
     return (
       <div className="sliders">
-        <input type="range" min="0" max="255" onChange={this.changeHue} />
+        <h1>HSL Color Picker</h1>
+        <span>Hue: </span>
         {this.state.hue}
-        <input type="range" min="0" max="255" onChange={this.changeSat} />
+        <input
+          type="range"
+          value={this.state.value}
+          min="0"
+          max="360"
+          onChange={this.changeHue}
+        />
+        <span>Saturation: </span>
         {this.state.saturation}
-        <input type="range" min="0" max="255" onChange={this.changeLight} />
+        <input
+          type="range"
+          value={this.state.value}
+          min="0"
+          max="100"
+          onChange={this.changeSat}
+        />
+        <span>Lightness</span>
         {this.state.brightness}
+        <input
+          type="range"
+          value={this.state.value}
+          min="0"
+          max="100"
+          onChange={this.changeLight}
+        />
+        <span>Alpha: </span>
+        {this.state.alpha}
+        <input
+          type="range"
+          value={this.state.value}
+          min="0"
+          max="100"
+          onChange={this.changeAlpha}
+        />
         <div
           className="colordisplay"
           style={{
             backgroundColor: `Hsl(${this.state.hue}, ${
               this.state.saturation
-            }%, ${this.state.brightness}%)`
+            }%, ${this.state.brightness}%, ${this.state.alpha}%)`
           }}
         />
+        <p>
+          hsla: {this.state.hue},{this.state.saturation},{this.state.brightness}
+          ,{this.state.alpha}
+        </p>
       </div>
     )
   }

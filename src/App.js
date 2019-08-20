@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import Hsl from './components/Hsl'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return <Hsl />
   }
 }
 

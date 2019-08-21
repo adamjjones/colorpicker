@@ -85,15 +85,16 @@ export class Hsl extends Component {
         />
         <div
           className="colordisplay"
+          onClick={this.randomColor}
           style={{
-            backgroundColor: `Hsl(${this.state.hue}, ${
+            backgroundColor: `Hsl(${this.state.hue.value}, ${
               this.state.saturation
-            }%, ${this.state.brightness}%, ${this.state.alpha}%)`
+            }%, ${this.state.brightness}%, ${this.state.alpha}%),`
           }}
         />
         <p>
-          hsla: {this.state.hue},{this.state.saturation},{this.state.brightness}
-          ,{this.state.alpha}
+          hsla: ({this.state.hue}, {this.state.saturation}%{' '}
+          {this.state.brightness}% {this.state.alpha}%)
         </p>
       </div>
     )

@@ -29,12 +29,6 @@ export class Hsl extends Component {
     })
   }
 
-  displayCode = event => {
-    this.setState({
-      hue: this.value
-    })
-  }
-
   changeLight = event => {
     console.log('It works')
     console.log(event)
@@ -85,11 +79,10 @@ export class Hsl extends Component {
         />
         <div
           className="colordisplay"
-          onClick={this.randomColor}
           style={{
-            backgroundColor: `Hsl(${this.state.hue.value}, ${
+            backgroundColor: `Hsl(${this.state.hue}, ${
               this.state.saturation
-            }%, ${this.state.brightness}%, ${this.state.alpha}%),`
+            }%, ${this.state.brightness}%, ${this.state.alpha}%)`
           }}
         />
         <p>
